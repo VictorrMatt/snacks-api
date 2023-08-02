@@ -1,0 +1,15 @@
+version: "3.1"
+
+services:
+  postgres:
+    container_name: postgres-snacker
+    image: postgres:15-alpine3.18
+    environment:
+      - POSTGRES_USER=product
+      - POSTGRES_PASSWORD=product445566
+      - POSTGRES_DB=products
+      - POSTGRES_HOST_AUTH_METHOD=md5
+    volumes:
+      - ./data-postgresql:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
