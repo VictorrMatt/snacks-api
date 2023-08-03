@@ -6,9 +6,7 @@ class Scraper {
   }
 
   async initialize() {
-    this.browser = await puppeteer.launch({
-      headless: false,
-    });
+    this.browser = await puppeteer.launch();
   }
 
   async close() {
