@@ -6,6 +6,7 @@ const app = express();
 const port = 4002;
 app.use(express.json());
 app.use(router);
+app.timeout = 60000;
 
 app.listen(port, () => {
   console.log(`Server Film Fans is running on port ${port}`);
