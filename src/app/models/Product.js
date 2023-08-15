@@ -20,6 +20,25 @@ class Product {
     }
     return array;
   }
+  
+  separateProductsByCategory(name, category, value, imageUrl) {
+    const allCategories = {};
+
+    for (let i in name) {
+      if (allCategories.hasOwnProperty(category[i])) {
+        allCategories[category[i]].push(
+          name[i],
+          category[i],
+          value[i],
+          imageUrl[i]
+        );
+      } else {
+        allCategories[category[i]] = [category[i]];
+      }
+    }
+
+    return allCategories;
+  }
 
   concatTwoArrays(fArray, sArray) {
     const array = [];

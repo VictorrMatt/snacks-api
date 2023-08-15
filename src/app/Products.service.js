@@ -21,6 +21,7 @@ class ProductsService {
       productsData[0],
       productsData[1]
     );
+
     const formatedProducts = product.createProductsObject(
       allProducts[0],
       allProducts[1],
@@ -30,6 +31,15 @@ class ProductsService {
 
     const response = await productsRepository.updateAllProducts(
       formatedProducts
+    );
+    
+    response.send(
+      product.separateProductsByCategory(
+        allProducts[0],
+        allProducts[1],
+        allProducts[2],
+        allProducts[3]
+      )
     );
     return response;
   };
