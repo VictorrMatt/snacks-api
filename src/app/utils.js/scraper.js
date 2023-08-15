@@ -17,9 +17,9 @@ class Scraper {
     // Inicialização do Puppeteer e navegação para a página desejada:
     const page = await this.browser.newPage();
     await page.goto(
-      "https://sampetiscaria.smartpos.app/?categoria=&nome=Todas+as+categorias"
+      "https://sampetiscaria.smartpos.app/?categoria=&nome=Todas+as+categorias",
+      { timeout: 60000 }
     );
-    await page.setDefaultTimeout(60000);
     await page.waitForSelector(".sc-pVTFL");
     // Esperando a página carregar e encontrar os elementos:
     const arrayOfProducts = [];
