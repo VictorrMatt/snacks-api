@@ -19,7 +19,7 @@ class Scraper {
     await page.goto(
       "https://sampetiscaria.smartpos.app/?categoria=&nome=Todas+as+categorias"
     );
-    page.setDefaultTimeout(60000);
+    await page.setDefaultTimeout(60000);
     await page.waitForSelector(".sc-pVTFL");
     // Esperando a página carregar e encontrar os elementos:
     const arrayOfProducts = [];
