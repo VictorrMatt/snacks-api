@@ -18,7 +18,7 @@ class Scraper {
     const page = await this.browser.newPage();
     await page.goto(
       "https://sampetiscaria.smartpos.app/?categoria=&nome=Todas+as+categorias",
-      { timeout: 60000 }
+      { timeout: 120000 }
     );
     await page.waitForSelector(".sc-pVTFL");
     // Esperando a página carregar e encontrar os elementos:
