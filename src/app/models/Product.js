@@ -26,26 +26,23 @@ separateProductsByCategory(names, categories, values, imageUrls) {
 
   for (let i in names) {
     const category = categories[i];
+    const productData = [
+      names[i],
+      category,
+      values[i],
+      imageUrls[i]
+    ];
+
     if (allCategories.hasOwnProperty(category)) {
-      allCategories[category].push([
-        names[i],
-        category,
-        values[i],
-        imageUrls[i]
-                                   ]);
+      allCategories[category].push(productData);
     } else {
-      allCategories[category] = [
-        names[i],
-        category,
-        values[i],
-        imageUrls[i]
-      ];
+      allCategories[category] = [productData];
     }
   }
 
   return allCategories;
 }
-
+  
   concatTwoArrays(fArray, sArray) {
     const array = [];
     for (let index in fArray) {
