@@ -21,7 +21,7 @@ class Product {
     return array;
   }
   
-function separateProductsByCategory(names, categories, values, imageUrls) {
+separateProductsByCategory(names, categories, values, imageUrls) {
   const allCategories = {};
 
   for (let i in names) {
