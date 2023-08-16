@@ -27,12 +27,12 @@ separateProductsByCategory(names, categories, values, imageUrls) {
   for (let i in names) {
     const category = categories[i];
     if (allCategories.hasOwnProperty(category)) {
-      allCategories[category].push(
+      allCategories[category].push([
         names[i],
         category,
         values[i],
         imageUrls[i]
-      );
+                                   ]);
     } else {
       allCategories[category] = [
         names[i],
