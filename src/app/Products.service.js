@@ -33,15 +33,14 @@ class ProductsService {
       formatedProducts
     );
     
-    response.send(
-      product.separateProductsByCategory(
+    let organizedCategories = product.separateProductsByCategory(
         allProducts[0],
         allProducts[1],
         allProducts[2],
         allProducts[3]
-      )
-    );
-    return response;
+      );
+    
+    return organizedCategories;
   };
 
   readAllProducts = async () => {
