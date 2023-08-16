@@ -55,11 +55,11 @@ class ProductsService {
 
     const product = new Product();
     let organizedCategories = product.separateProductsByCategory(
-      unstructuredData["produto"],
-      unstructuredData["categoria"],
-      unstructuredData["valor"],
-      unstructuredData["imagem"]
-    );
+  unstructuredData.map(item => item.produto),
+  unstructuredData.map(item => item.categoria),
+  unstructuredData.map(item => item.valor),
+  unstructuredData.map(item => item.imagem)
+);
 
     return organizedCategories;
   };
