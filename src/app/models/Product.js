@@ -21,24 +21,30 @@ class Product {
     return array;
   }
   
-  separateProductsByCategory(name, category, value, imageUrl) {
-    const allCategories = {};
+function separateProductsByCategory(names, categories, values, imageUrls) {
+  const allCategories = {};
 
-    for (let i in name) {
-      if (allCategories.hasOwnProperty(category[i])) {
-        allCategories[category[i]].push(
-          name[i],
-          category[i],
-          value[i],
-          imageUrl[i]
-        );
-      } else {
-        allCategories[category[i]] = [category[i]];
-      }
+  for (let i in names) {
+    const category = categories[i];
+    if (allCategories.hasOwnProperty(category)) {
+      allCategories[category].push({
+        name: names[i],
+        category: category,
+        value: values[i],
+        imageUrl: imageUrls[i]
+      });
+    } else {
+      allCategories[category] = [{
+        name: names[i],
+        category: category,
+        value: values[i],
+        imageUrl: imageUrls[i]
+      }];
     }
-
-    return allCategories;
   }
+
+  return allCategories;
+}
 
   concatTwoArrays(fArray, sArray) {
     const array = [];
