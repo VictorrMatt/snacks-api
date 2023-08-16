@@ -32,20 +32,36 @@ class ProductsService {
     const response = await productsRepository.updateAllProducts(
       formatedProducts
     );
-    
+
     let organizedCategories = product.separateProductsByCategory(
-        allProducts[0],
-        allProducts[1],
-        allProducts[2],
-        allProducts[3]
-      );
-    
+      allProducts[0],
+      allProducts[1],
+      allProducts[2],
+      allProducts[3]
+    );
+
     return organizedCategories;
   };
 
   readAllProducts = async () => {
     const response = await productsRepository.readAllProducts();
-    return response;
+
+    // Desestruturando os objetos no array
+    const unstructuredData = response.map(
+      ({ categoria, id, produto, imagem, valor }) => {
+        return { categoria, id, produto, imagem, valor };
+      }
+    );
+
+    const product = new Product();
+    let organizedCategories = product.separateProductsByCategory(
+      unstructuredData["produto"],
+      unstructuredData["categoria"],
+      unstructuredData["valor"],
+      unstructuredData["imagem"]
+    );
+
+    return organizedCategories;
   };
 
   findProductById = async (id) => {
